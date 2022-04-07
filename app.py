@@ -7,7 +7,7 @@ Created on Sat Jul 25 12:02:51 2020
 
 from flask import Flask, render_template, request, flash, redirect,url_for, jsonify, session 
 from flask import Response,send_file
-app = Flask(__name__)
+app = Flask(__name__, template_folder='templates')
 import rds_db as db
 import pymysql
 from base64 import b64encode
