@@ -11,7 +11,6 @@ conn = pymysql.connect(
 
 
 cur=conn.cursor()
-cur.execute("SELECT *  FROM SRINIDHI_WORKSPACE.LOGIN_INFO")
+
+cur.execute("SELECT *  AWS_TEAM8_DATABASE.USER_REGISTRATION_INFO")
 details = cur.fetchall()
-for i in details:
-    print(i)

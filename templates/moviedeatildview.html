@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body data-spy="scroll"  >
+   
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="#">{{movie_name}}</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                  <a class="nav-link active" href="{{ url_for('home') }}">Home <span class="sr-only"></span></a>
+              </li>
+          
+               </ul>
+            </div>
+        </div>
+      
+   
+    </nav>
+<!-- 
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 fixed-top">
+    <div class="container">
+    <a href="#" class="navbar-brand">{{movie_name}}</a>
+    </div> -->
+
+<style>
+.product-image{
+    position: relative;
+    height: 80vh;
+    width: 175vh;
+    filter: blur(8px);
+    -webkit-filter: blur(2px);
+}
+.plus-image {
+    left: 30%;
+    top: 50%;
+    position: absolute;
+    margin-top: -25%;
+    margin-left: -25%;
+}
+
+.plus-button{
+    left: 75%;
+    top: 100%;
+    position: absolute;
+    margin-top: -25%;
+    margin-left: -25%;
+    
+}
+.paragraph{
+    left: 70%;
+    top: 65%;
+    position: absolute;
+    margin-top: -25%;
+    margin-left: -25%;
+    font-size: 25px;
+    height: 20px;
+    width: 50%;
+    
+}
+.textgraph{
+    left: 70%;
+    top: 95%;
+    position: absolute;
+    margin-top: -25%;
+    margin-left: -25%;
+    font-size: 25px;
+    height: 20px;
+    width: 50%;
+    
+}
+</style>
+<br>
+<div class = "row text-center" >
+    <div class="col-xs-6 text-center" style="background-color:none; margin-top:10px;">
+            <img src="data:;base64,{{movie_bg_image}}"  class='product-image'>
+            <a href="{{movie_trailer_link}}" ><img  img src="data:;base64,{{movie_front_poster}}" width="250px" height="350px" class='plus-image',text=trailer/></a></img>
+            <div><a href="/seatviewpage" ><img  src="{{url_for('static', filename='book_ticket.jpg')}}"   width="170" height="50"class='plus-button'/></a></img></div>
+            
+            <div><h1 class="textgraph" style="color:rgb(247, 7, 7);" > Genre : {{movie_genere}}    Rating :{{movie__rating}}</h1></div>
+            
+    </div>
+</div>
+<div>
+    <h1><div><h1 style="color:rgb(12, 11, 11);" > ABOUT THE MOVIE</h1></div></h1>
+<div>
+    <p style="color:rgb(248, 195, 186);" > {{movie_description}} </p></div>
+</div>
+</body>
+</html>
+

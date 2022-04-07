@@ -1,0 +1,249 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        body
+    {
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    }
+    
+    #Username
+    {
+      border:none;
+      border-bottom:1px solid;
+    }
+    
+    .screen
+    {
+      width:100%;
+      height:20px;
+      background:#4388cc;
+      color:#fff;
+      line-height:20px;
+      font-size:15px;
+    }
+    
+    .smallBox::before
+    {
+      content:".";
+      width:15px;
+      height:15px;
+      float:left;
+      margin-right:10px;
+    }
+    .greenBox::before
+    {
+      content:"";
+      background:Green;
+    }
+    .redBox::before
+    {
+      content:"";
+      place-content: center ;
+      background:Red;
+      padding-block: right;
+
+    }
+    .emptyBox::before
+    {
+      content="";
+      box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+        background-color:#ccc;
+    }
+    
+    .seats
+    {
+      border:1px solid rgb(0, 255, 128);background:rgb(51, 255, 0);
+      content:"";
+      background:rgb(0, 255, 13);
+    } 
+
+    .seatsdum
+    {
+      content:"";
+      background:Red;
+    } 
+    
+    
+    
+    .seatGap
+    {
+      width:40px;
+    }
+    
+    .seatVGap
+    {
+      height:40px;
+    }
+    
+    table
+    {
+      text-align:center;
+    }
+    
+    
+    .Displaytable
+    {
+      text-align:center;
+    }
+    .Displaytable td, .Displaytable th {
+        border: 1px solid;
+        text-align: left;
+    }
+    
+    textarea
+    {
+      border:none;
+      background:transparent;
+    }
+    
+    
+    
+    input[type=checkbox] {
+        width:0px;
+        margin-right:18px;
+    }
+    
+    input[type=checkbox]:before {
+        content: "";
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        vertical-align:middle;
+        text-align: center;
+        box-shadow: inset 0px 2px 3px 0px rgba(0, 0, 0, .3), 0px 1px 0px 0px rgba(255, 255, 255, .8);
+        background-color:#ccc;
+    }
+    
+    input[type=checkbox]:checked:before {
+        background-color:Green;
+        font-size: 15px;
+    }
+    
+    
+    
+    </style>
+    
+    <body onload="onLoaderFunc()">
+      <form action="/update_seates" method="POST">
+        <div class="seatStructure">
+          
+        <center>
+          <table id="seatsBlock">
+            <p id="notification"></p>
+            <tr>
+              <td colspan="14">
+                <div class="screen">SCREEN</div>
+              </td>
+              <td rowspan="20">
+                <div class="smallBox greenBox">Selected Seat</div> <br />
+                <div class="smallBox redBox">Reserved Seat</div><br />
+                <div class="smallBox emptyBox">Empty Seat</div><br />
+              </td>
+    
+              <br />
+            </tr>
+    
+            <tr>
+              <td></td>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td></td>
+              <td>6</td>
+              <td>7</td>
+              <td>8</td>
+              <td>9</td>
+              <td>10</td>
+            </tr>
+    
+            <tr>
+              <td>A</td>
+              {% for row in list_users %}
+              {% if row[0] <= 5 %}
+                    {% if row[1] == 1 %}
+                          <td><input type="checkbox" class="seats" value={{row[0]}} name="mycheckbox"></td>
+                    {%else%}
+                          <td class="smallBox redBox" ></td>
+                    {% endif %}
+              {% endif %}
+              {% endfor %}
+              <td class="seatGap"></td>
+              {% for row in list_users %}
+              {% if row[0] > 5 and row[0] <= 10  %}
+                    {% if row[1] == 1 %}
+                          <td><input type="checkbox" class="seats" value={{row[0]}} name="mycheckbox"></td>
+                    {%else%}
+                          <td class="smallBox redBox" ></td>
+                    {% endif %}
+              {% endif %}
+              {% endfor %}
+            </tr>
+    
+            <tr>
+              <td>B</td>
+              {% for row in list_users %}
+              {% if row[0] > 10 and row[0] <= 15  %}
+                    {% if row[1] == 1 %}
+                          <td><input type="checkbox" class="seats" value={{row[0]}} name="mycheckbox"></td>
+                    {%else%}
+                          <td class="smallBox redBox" ></td>
+                    {% endif %}
+              {% endif %}
+              {% endfor %}
+              <td class="seatGap"></td>
+              {% for row in list_users %}
+              {% if row[0] > 15 and row[0] <= 20  %}
+                    {% if row[1] == 1 %}
+                          <td><input type="checkbox" class="seats" value={{row[0]}} name="mycheckbox"></td>
+                    {%else%}
+                          <td class="smallBox redBox" ></td>
+                    {% endif %}
+              {% endif %}
+              {% endfor %}
+            </tr>
+
+            <tr>
+              <td>C</td>
+              {% for row in list_users %}
+              {% if row[0] > 20 and row[0] <= 25  %}
+                    {% if row[1] == 1 %}
+                          <td><input type="checkbox" class="seats" value={{row[0]}} name="mycheckbox"></td>
+                    {%else%}
+                          <td class="smallBox redBox" ></td>
+                    {% endif %}
+              {% endif %}
+              {% endfor %}
+              <td class="seatGap"></td>
+              {% for row in list_users %}
+              {% if row[0] > 25 and row[0] <= 30  %}
+                    {% if row[1] == 1 %}
+                          <td><input type="checkbox" class="seats" value={{row[0]}} name="mycheckbox"></td>
+                    {%else%}
+                          <td class="smallBox redBox" ></td>
+                    {% endif %}
+              {% endif %}
+              {% endfor %}
+            </tr>
+
+          </table>
+          <input type="submit">
+
+        </center>
+
+
+      </form>
+      
+      
+</body>
+</html>
