@@ -25,7 +25,7 @@ def home():
             Dummy_list.append(i[2])
             image_list.append(Dummy_list)
             Dummy_list =[]
-    return render_template('homePage.html', data = image_list) 
+    return render_template('homepage.html', data = image_list) 
 
 @app.route('/edit/<id>', methods = ['POST', 'GET'])
 def get_movie_detailed_view(id):
